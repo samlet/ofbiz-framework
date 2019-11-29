@@ -341,8 +341,8 @@ under the License.
         <field name="finAccountTypeId" type="id"></field>
         <field name="statusId" type="id"></field>
         <field name="finAccountName" type="name"></field>
-        <field name="finAccountCode" type="long-varchar" encrypt="true"></field>
-        <field name="finAccountPin" type="long-varchar" encrypt="true"></field>
+        <field name="finAccountCode" type="long-varchar" encrypt="false"></field>
+        <field name="finAccountPin" type="long-varchar" encrypt="false"></field>
         <field name="currencyUomId" type="id"/>
         <field name="organizationPartyId" type="id"><description>The internal organization Party that owns (or rather, is liable for) the account.</description></field>
         <field name="ownerPartyId" type="id"><description>The customer or third party that owns the account.</description></field>
@@ -2773,7 +2773,7 @@ under the License.
             title="Credit Card Information">
       <field name="paymentMethodId" type="id"></field>
       <field name="cardType" type="short-varchar"></field>
-      <field name="cardNumber" type="credit-card-number" encrypt="true"></field>
+      <field name="cardNumber" type="credit-card-number" encrypt="false"></field>
       <field name="validFromDate" type="credit-card-date"><description>Not common in some parts of the world.</description></field>
       <field name="expireDate" type="credit-card-date"></field>
       <field name="issueNumber" type="credit-card-date"><description>Single digit number on some Switch and Maestro cards</description></field>
@@ -2887,8 +2887,8 @@ under the License.
             package-name="org.apache.ofbiz.accounting.payment"
             title="Gift Card Information">
       <field name="paymentMethodId" type="id"></field>
-      <field name="cardNumber" type="long-varchar" encrypt="true"></field>
-      <field name="pinNumber" type="long-varchar" encrypt="true"></field>
+      <field name="cardNumber" type="long-varchar" encrypt="false"></field>
+      <field name="pinNumber" type="long-varchar" encrypt="false"></field>
       <field name="expireDate" type="credit-card-date"></field>
       <field name="contactMechId" type="id"></field>
       <prim-key field="paymentMethodId"/>
@@ -2912,8 +2912,8 @@ under the License.
       <field name="orderId" type="id"></field>
       <field name="orderItemSeqId" type="id"></field>
       <field name="surveyResponseId" type="id"></field>
-      <field name="cardNumber" type="long-varchar" encrypt="true"></field>
-      <field name="pinNumber" type="long-varchar" encrypt="true"></field>
+      <field name="cardNumber" type="long-varchar" encrypt="false"></field>
+      <field name="pinNumber" type="long-varchar" encrypt="false"></field>
       <field name="amount" type="currency-amount"></field>
       <field name="responseCode" type="short-varchar"></field>
       <field name="referenceNum" type="short-varchar"></field>
@@ -3539,9 +3539,9 @@ under the License.
       <field name="emailMerchant" type="short-varchar"><description>Email Merchant? - if should send email to the merchant for each transaction (TRUE|FALSE)</description></field>
       <field name="testMode" type="short-varchar"><description>Test Mode - forces the url property to the test url and adds more logging info to the logs (TRUE|FALSE)</description></field>
       <field name="relayResponse" type="short-varchar"><description>Relay Response? - if should relay the reposnse to a different server (TRUE|FALSE)</description></field>
-      <field name="tranKey" type="value" encrypt="true"><description>Transaction Key</description></field>
+      <field name="tranKey" type="value" encrypt="false"><description>Transaction Key</description></field>
       <field name="userId" type="value"><description>Username - your authorize.net userid</description></field>
-      <field name="pwd" type="value" encrypt="true"><description>Password - your authorize.net password</description></field>
+      <field name="pwd" type="value" encrypt="false"><description>Password - your authorize.net password</description></field>
       <field name="transDescription" type="value"><description>Default Transaction Description</description></field>
       <field name="duplicateWindow" type="numeric"><description>Check the duplicate transaction in the specified time duration which is specified in seconds. If duplicate transaction occurs in the defined time limit then return error.</description></field>
       <prim-key field="paymentGatewayConfigId"/>
@@ -3554,7 +3554,7 @@ under the License.
             title="eWay Payment Gateway Configuration">
       <field name="paymentGatewayConfigId" type="id"></field>
       <field name="customerId" type="value"/>
-      <field name="refundPwd" type="value" encrypt="true"/>
+      <field name="refundPwd" type="value" encrypt="false"/>
       <field name="testMode" type="short-varchar"/>
       <field name="enableCvn" type="short-varchar"/>
       <field name="enableBeagle" type="short-varchar"/>
@@ -3600,10 +3600,10 @@ under the License.
       <field name="proxyAddress" type="value"><description>Proxy Address</description></field>
       <field name="proxyPort" type="numeric"><description>Proxy Port</description></field>
       <field name="proxyLogon" type="value"><description>Proxy Logon</description></field>
-      <field name="proxyPassword" type="value" encrypt="true"><description>Proxy Password</description></field>
+      <field name="proxyPassword" type="value" encrypt="false"><description>Proxy Password</description></field>
       <field name="vendor" type="short-varchar"><description>Vendor of account information</description></field>
       <field name="userId" type="short-varchar"><description>PayFlow UserID of account information</description></field>
-      <field name="pwd" type="value" encrypt="true"><description>PayFlow Password of account information</description></field>
+      <field name="pwd" type="value" encrypt="false"><description>PayFlow Password of account information</description></field>
       <field name="partner" type="short-varchar"><description>PayFlow Partner of account information</description></field>
       <field name="checkAvs" type="indicator"><description>Use Address Verification</description></field>
       <field name="checkCvv2" type="indicator"><description>Require CVV2 Verification</description></field>
@@ -3652,7 +3652,7 @@ under the License.
       <field name="groupId" type="short-varchar"><description>Useful for grouping transactions</description></field>
       <field name="clientId" type="short-varchar"><description>Client Id of account information</description></field>
       <field name="username" type="short-varchar"><description>User name of account informatio</description></field>
-      <field name="pwd" type="value" encrypt="true"><description>Password of account informatio</description></field>
+      <field name="pwd" type="value" encrypt="false"><description>Password of account informatio</description></field>
       <field name="userAlias" type="short-varchar"><description>Alias of account informatio</description></field>
       <field name="effectiveAlias" type="short-varchar"><description>Effective Alias of account information</description></field>
       <field name="processMode" type="indicator"><description>Process mode (Y: approve / N: decline / R: random / P: production)</description></field>
@@ -3668,7 +3668,7 @@ under the License.
             title="RBS WorldPay Payment Gateway Config">
       <field name="paymentGatewayConfigId" type="id"></field>
       <field name="redirectUrl" type="value"><description>Redirect URL</description></field>
-      <field name="instId" type="value" encrypt="true"><description>Worldpay instance Id</description></field>
+      <field name="instId" type="value" encrypt="false"><description>Worldpay instance Id</description></field>
       <field name="authMode" type="indicator"><description>Authorization Mode (A: Full-Auth / E: Pre-Auth)</description></field>
       <field name="fixContact" type="indicator"><description>Will displace contact info on WorldPay in non-editable format</description></field>
       <field name="hideContact" type="indicator"><description>Will hide the contact info completely</description></field>
@@ -3687,7 +3687,7 @@ under the License.
             title="Orbital Payment Gateway Config">
       <field name="paymentGatewayConfigId" type="id"></field>
       <field name="username" type="short-varchar"><description>Orbital Username of account information</description></field>
-      <field name="connectionPassword" type="value" encrypt="true"><description>Orbital Password of account information</description></field>
+      <field name="connectionPassword" type="value" encrypt="false"><description>Orbital Password of account information</description></field>
       <field name="merchantId" type="value"><description>You merchant ID</description></field>
       <field name="engineClass" type="value"><description>Class for the Orbital Gateway - Default should be used - HttpsEngine</description></field>
       <field name="hostName" type="value"><description>Address of the payment processor</description></field>
@@ -3710,7 +3710,7 @@ under the License.
             title="SecurePay Payment Gateway Config">
       <field name="paymentGatewayConfigId" type="id"></field>
       <field name="merchantId" type="value"><description>You merchant ID</description></field>
-      <field name="pwd" type="value" encrypt="true"><description>SecurePay Password of account information</description></field>
+      <field name="pwd" type="value" encrypt="false"><description>SecurePay Password of account information</description></field>
       <field name="serverURL" type="value"><description>Server URL of the payment processor</description></field>
       <field name="processTimeout" type="numeric"><description>Process Timeout</description></field>
       <field name="enableAmountRound" type="indicator"><description>Enable rounds the currency amount to .00 (Y / N)</description></field>
@@ -3730,9 +3730,9 @@ under the License.
       <field name="acquirerTimeout" type="value"><description>Number of seconds (default = 10) of waiting time for a response from the iDEAL services. If no response is received during that time, an exception is displayed</description></field>
       <field name="privateCert" type="value"><description>Name of the acceptor’s organization as given during the creation of his or her own certificate. See section 0 for more information about the acceptor’s certificate</description></field>
       <field name="acquirerKeyStoreFilename" type="value"><description>Keystore file and acquirer’s password</description></field>
-      <field name="acquirerKeyStorePassword" type="value" encrypt="true"><description>Password of the Acquirer keystore</description></field>
+      <field name="acquirerKeyStorePassword" type="value" encrypt="false"><description>Password of the Acquirer keystore</description></field>
       <field name="merchantKeyStoreFilename" type="value"><description>Keystore file and merchant’s password</description></field>
-      <field name="merchantKeyStorePassword" type="value" encrypt="true"><description>Password of the Merchant keystore</description></field>
+      <field name="merchantKeyStorePassword" type="value" encrypt="false"><description>Password of the Merchant keystore</description></field>
       <field name="expirationPeriod" type="value"><description>Expiration period of the transaction</description></field>
       <prim-key field="paymentGatewayConfigId"/>
       <relation type="one" fk-name="PGID_PGC" rel-entity-name="PaymentGatewayConfig">

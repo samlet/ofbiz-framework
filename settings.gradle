@@ -31,3 +31,7 @@ iterateOverActiveComponents { File component ->
         include subProject.replaceAll(fileSep, ':')
     
 }
+
+//+ add sagas projects
+//include ":sagas-base"
+//project(":sagas-base").projectDir = file("../sagas-base")

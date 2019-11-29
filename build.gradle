@@ -25,7 +25,13 @@ import org.asciidoctor.gradle.AsciidoctorTask
  * ======================================================== */
 buildscript {
     repositories {
-        jcenter()
+        //+
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        mavenLocal()
+        mavenCentral()
+        //+
+
+        //- jcenter()
     }
     dependencies {
         classpath 'at.bxm.gradleplugins:gradle-svntools-plugin:latest.release'
@@ -72,7 +78,13 @@ defaultTasks 'build'
 
 allprojects {
     repositories{
-        jcenter()
+        //+
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        mavenLocal()
+        mavenCentral()
+        //+
+
+        //- jcenter()
         mavenLocal()
     }
 }
@@ -97,6 +109,11 @@ configurations {
         transitive = true
     }
 }
+
+// ⊕ [grpc-java/build.gradle at v1.19.0 · grpc/grpc-java](https://github.com/grpc/grpc-java/blob/v1.19.0/examples/build.gradle)
+def grpcVersion = '1.19.0' // CURRENT_GRPC_VERSION
+def protobufVersion = '3.6.1'
+def protocVersion = protobufVersion
 
 dependencies {
     // ofbiz compile libs
@@ -132,8 +149,11 @@ dependencies {
     compile 'org.apache.poi:poi:3.17'
     compile 'org.apache.shiro:shiro-core:1.4.0'
     compile 'org.apache.sshd:sshd-core:1.7.0'
-    compile 'org.apache.tika:tika-core:1.16'
-    compile 'org.apache.tika:tika-parsers:1.16'
+//    compile 'org.apache.tika:tika-core:1.16'
+//    compile 'org.apache.tika:tika-parsers:1.16'
+    compile 'org.apache.tika:tika-core:1.20'
+    compile 'org.apache.tika:tika-parsers:1.20'
+
     compile 'org.apache.tomcat:tomcat-catalina-ha:9.0.7'
     compile 'org.apache.tomcat:tomcat-catalina:9.0.7'
     compile 'org.apache.tomcat:tomcat-jasper:9.0.7'
@@ -167,6 +187,41 @@ dependencies {
     runtime 'org.apache.logging.log4j:log4j-jul:2.10.0' // for external jars using the java.util.logging: routes logging to log4j 2
     runtime 'org.apache.logging.log4j:log4j-slf4j-impl:2.10.0' // for external jars using slf4j: routes logging to log4j 2
     runtime 'org.codeartisans.thirdparties.swing:batik-all:1.8pre-r1084380'
+
+    // sagas libs
+    compile group: 'net.sf.py4j', name: 'py4j', version: '0.10.8.1'
+    // https://mvnrepository.com/artifact/com.google.inject/guice
+    compile group: 'com.google.inject', name: 'guice', version: '4.2.2'
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    // TiDB 支持的连接器版本: Connector/J	5.1.8
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
+    // compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.8'
+
+    // If you are using Java 8 or newer then you should use the JDBC 4.2 version.
+    // PostgreSQL JDBC 4.2 Driver, 42.2.5
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+    // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
+    compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.1.0'
+
+    compile 'org.hyperledger.fabric-sdk-java:fabric-sdk-java:1.4.0'
+
+    // grpc
+    compileOnly "javax.annotation:javax.annotation-api:1.2"
+    compile "com.google.api.grpc:proto-google-common-protos:1.0.0"
+    // compile "io.grpc:grpc-core:${grpcVersion}"
+    compile "io.grpc:grpc-alts:${grpcVersion}"
+    compile "io.grpc:grpc-netty-shaded:${grpcVersion}"
+    compile "io.grpc:grpc-protobuf:${grpcVersion}"
+    compile "io.grpc:grpc-stub:${grpcVersion}"
+    compile "com.google.protobuf:protobuf-java-util:${protobufVersion}"
+    compile "io.grpc:grpc-netty:${grpcVersion}"
+
+    //+ sagas projects
+    //compile project(":sagas-base")
 
     // plugin libs
     subprojects.each { subProject ->

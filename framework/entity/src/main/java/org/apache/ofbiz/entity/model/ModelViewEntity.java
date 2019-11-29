@@ -545,7 +545,7 @@ public class ModelViewEntity extends ModelEntity {
             ModelViewEntity.ModelAlias alias = it.next();
             if (alias.isComplexAlias()) {
                 // TODO: conversion for complex-alias needs to be implemented for cache and in-memory eval stuff to work correctly
-                Debug.logWarning("[" + this.getEntityName() + "]: Conversion for complex-alias needs to be implemented for cache and in-memory eval stuff to work correctly, will not work for alias: " + alias.getName(), module);
+                Debug.logInfo("[" + this.getEntityName() + "]: Conversion for complex-alias needs to be implemented for cache and in-memory eval stuff to work correctly, will not work for alias: " + alias.getName(), module);
             } else {
                 ModelConversion conversion = getOrCreateModelConversion(alias.getEntityAlias());
                 conversion.addConversion(alias.getField(), alias.getName());

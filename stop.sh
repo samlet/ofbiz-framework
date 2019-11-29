@@ -1,3 +1,4 @@
 #!/bin/bash
-./gradlew "ofbiz --shutdown"
+# ./gradlew "ofbiz --shutdown"
+java -jar build/libs/ofbiz.jar --shutdown
 

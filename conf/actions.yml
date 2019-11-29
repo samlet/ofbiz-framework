@@ -1,0 +1,9 @@
+actions:
+  - type: simple
+    className: com.sagas.actions.SimpleActions
+  - type: testing
+    className: com.sagas.actions.testings.TestingActions
+  - type: security
+    className: com.sagas.security.SecurityManager
+  - type: entity
+    className: com.sagas.generic.EntityRoutines

@@ -92,12 +92,16 @@ public class DelegatorEcaHandler implements EntityEcaHandler<EntityEcaRule> {
         // if the eventMap is passed we save a HashMap lookup, but if not that's okay we'll just look it up now
         if (eventMap == null) eventMap = this.getEntityEventMap(value.getEntityName());
         if (UtilValidate.isEmpty(eventMap)) {
-            //Debug.logInfo("Handler.evalRules for entity " + value.getEntityName() + ", event " + event + ", no eventMap for this entity", module);
+//            Debug.logImportant("Handler.evalRules for entity " + value.getEntityName()
+//                    + ", operation " + currentOperation
+//                    + ", event " + event + ", no eventMap for this entity", module);
             return;
         }
 
         List<EntityEcaRule> rules = eventMap.get(event);
-        //Debug.logInfo("Handler.evalRules for entity " + value.getEntityName() + ", event " + event + ", num rules=" + (rules == null ? 0 : rules.size()), module);
+//        Debug.logImportant("Handler.evalRules for entity " + value.getEntityName()
+//                + ", operation " + currentOperation
+//                + ", event " + event + ", num rules=" + (rules == null ? 0 : rules.size()), module);
 
         if (UtilValidate.isEmpty(rules)) {
             return;

@@ -46,6 +46,14 @@ under the License.
         <property name="dispatcher-factory" value="org.apache.ofbiz.service.GenericDispatcherFactory"/>
     </container>
 
+    <!-- sagas bridge -->
+    <!--<container name="sagas-bridge" loaders="main,rmi" class="org.apache.ofbiz.service.sagas.SagasBridge">-->
+        <!--<property name="bound-name" value="SagasBridge"/>-->
+        <!--<property name="bound-host" value="0.0.0.0"/>-->
+        <!--<property name="bound-port" value="25333"/>-->
+        <!--<property name="delegator-name" value="default"/>-->
+    <!--</container>-->
+
     <!-- RMI Service Dispatcher -->
     <container name="rmi-dispatcher" loaders="rmi" class="org.apache.ofbiz.service.rmi.RmiServiceContainer">
         <property name="bound-name" value="RMIDispatcher"/>

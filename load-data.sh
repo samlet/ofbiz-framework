@@ -1,2 +1,4 @@
 #!/bin/bash
-./gradlew terminateOfbiz loadAll
+# ./gradlew terminateOfbiz loadAll
+java -jar build/libs/ofbiz.jar --load-data
+

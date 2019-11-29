@@ -868,10 +868,10 @@ under the License.
       <field name="connectTimeout" type="numeric"><description>Timeout in seconds</description></field>
       <field name="headVersion" type="short-varchar"><description>Head version attribute</description></field>
       <field name="headAction" type="value"><description>Head action attribute</description></field>
-      <field name="accessUserId" type="value" encrypt="true"><description>Your DHL ShipIT User Id</description></field>
-      <field name="accessPassword" type="value" encrypt="true"><description>Your DHL ShipIT Access Password</description></field>
-      <field name="accessAccountNbr" type="value" encrypt="true"><description>Your DHL ShipIT Account Number</description></field>
-      <field name="accessShippingKey" type="value" encrypt="true"><description>Your DHL ShipIT Shipping Key</description></field>
+      <field name="accessUserId" type="value" encrypt="false"><description>Your DHL ShipIT User Id</description></field>
+      <field name="accessPassword" type="value" encrypt="false"><description>Your DHL ShipIT Access Password</description></field>
+      <field name="accessAccountNbr" type="value" encrypt="false"><description>Your DHL ShipIT Account Number</description></field>
+      <field name="accessShippingKey" type="value" encrypt="false"><description>Your DHL ShipIT Shipping Key</description></field>
       <field name="labelImageFormat" type="short-varchar"><description>Label image format</description></field>
       <field name="rateEstimateTemplate" type="value"><description>API Schema Templates</description></field>
       <prim-key field="shipmentGatewayConfigId"/>
@@ -886,10 +886,10 @@ under the License.
       <field name="connectUrl" type="value"><description>Fedex Connection URL</description></field>
       <field name="connectSoapUrl" type="value"><description>Fedex Soap Connection URL</description></field>
       <field name="connectTimeout" type="numeric"><description>Timeout in seconds</description></field>
-      <field name="accessAccountNbr" type="value" encrypt="true"><description>Your Fedex account number</description></field>
-      <field name="accessMeterNumber" type="value" encrypt="true"><description>Your Fedex meter number</description></field>
-      <field name="accessUserKey" type="value" encrypt="true"><description>Your Fedex user credential key</description></field>
-      <field name="accessUserPwd" type="value" encrypt="true"><description>Your Fedex user credential password</description></field>
+      <field name="accessAccountNbr" type="value" encrypt="false"><description>Your Fedex account number</description></field>
+      <field name="accessMeterNumber" type="value" encrypt="false"><description>Your Fedex meter number</description></field>
+      <field name="accessUserKey" type="value" encrypt="false"><description>Your Fedex user credential key</description></field>
+      <field name="accessUserPwd" type="value" encrypt="false"><description>Your Fedex user credential password</description></field>
       <field name="labelImageType" type="short-varchar"><description>Label image type</description></field>
       <field name="defaultDropoffType" type="value"><description>Default dropoff type</description></field>
       <field name="defaultPackagingType" type="value"><description>Default packaging type</description></field>
@@ -909,9 +909,9 @@ under the License.
       <field name="connectTimeout" type="numeric"><description>Timeout in seconds</description></field>
       <field name="shipperNumber" type="value"><description>UPS Shipper Number</description></field>
       <field name="billShipperAccountNumber" type="value"><description>UPS Bill Shipper Account Number</description></field>
-      <field name="accessLicenseNumber" type="value" encrypt="true"><description>UPS XPCI Access License Number</description></field>
-      <field name="accessUserId" type="value" encrypt="true"><description>UPS XPCI Access User ID</description></field>
-      <field name="accessPassword" type="value" encrypt="true"><description>UPS XPCI Access Password</description></field>
+      <field name="accessLicenseNumber" type="value" encrypt="false"><description>UPS XPCI Access License Number</description></field>
+      <field name="accessUserId" type="value" encrypt="false"><description>UPS XPCI Access User ID</description></field>
+      <field name="accessPassword" type="value" encrypt="false"><description>UPS XPCI Access Password</description></field>
       <field name="saveCertInfo" type="short-varchar"><description>Setting to save files needed for UPS certification (true|false)</description></field>
       <field name="saveCertPath" type="value"><description>UPS file certificate path</description></field>
       <field name="shipperPickupType" type="short-varchar"><description>Shipper Default Pickup Type</description></field>
@@ -937,8 +937,8 @@ under the License.
       <field name="connectUrl" type="value"><description>USPS Connection URL</description></field>
       <field name="connectUrlLabels" type="value"><description>USPS Connection URL for Labels</description></field>
       <field name="connectTimeout" type="numeric"><description>Timeout in seconds</description></field>
-      <field name="accessUserId" type="value" encrypt="true"><description>USPS Access User ID</description></field>
-      <field name="accessPassword" type="value" encrypt="true"><description>USPS Access Password</description></field>
+      <field name="accessUserId" type="value" encrypt="false"><description>USPS Access User ID</description></field>
+      <field name="accessPassword" type="value" encrypt="false"><description>USPS Access Password</description></field>
       <field name="maxEstimateWeight" type="numeric"><description>Estimate split into packages</description></field>
       <field name="test" type="short-varchar"><description>Test/Production mode</description></field>
       <prim-key field="shipmentGatewayConfigId"/>
