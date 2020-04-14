@@ -196,8 +196,9 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
 
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.19'
     // TiDB 支持的连接器版本: Connector/J	5.1.8
-    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
+    // compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
     // compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.8'
 
     // If you are using Java 8 or newer then you should use the JDBC 4.2 version.
